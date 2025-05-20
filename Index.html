@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiveSpace World</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: #121212;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            font-weight: bold;
+            color: #4CAF50;
+            text-align: center;
+        }
+        
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 300px;
+        }
+        
+        .nav-button {
+            background-color: #1E1E1E;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-button:hover {
+            background-color: #4CAF50;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .footer {
+            margin-top: 3rem;
+            color: #666;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">FiveSpace World</div>
+    
+    <div class="button-container">
+        <button class="nav-button">FiveSpace Design</button>
+        <button class="nav-button">Zahan Store</button>
+        <button class="nav-button">ArtMansion</button>
+        <button class="nav-button">LMS FiveSpace</button>
+        <button class="nav-button">GV FiveSpace</button>
+        <button class="nav-button">Zahan</button>
+        <button class="nav-button">FiveSpace Community</button>
+        <button class="nav-button">FiveSpace Labs</button>
+    </div>
+    
+    <div class="footer">
+        © 2023 FiveSpace World. All rights reserved.
+    </div>
+
+    <script>
+        // You can add functionality to the buttons here
+        document.querySelectorAll('.nav-button').forEach(button => {
+            button.addEventListener('click', () => {
+                alert(`Navigating to ${button.textContent}`);
+                // In a real implementation, you would redirect or load content here
+                // window.location.href = getLinkForButton(button.textContent);
+            });
+        });
+    </script>
+</body>
+</html>
