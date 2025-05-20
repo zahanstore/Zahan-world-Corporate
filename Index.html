@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiveSpace World</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif;
+        }
+        
+        body {
+            background-color: #f0e9e0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        .tab-button {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #800020;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-button.active {
+            border-bottom: 3px solid #800020;
+            color: #800020;
+        }
+        
+        .tab-button:hover:not(.active) {
+            color: #a00028;
+        }
+        
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Main Content (Home) */
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .logo-img {
+            height: 100px;
+            width: auto;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 4px 8px rgba(128, 0, 32, 0.2));
+        }
+        
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #800020;
+            text-align: center;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+            max-width: 350px;
+        }
+        
+        .nav-button {
+            background-color: white;
+            color: #333;
+            border: 1px solid #ddd;
+            padding: 16px 20px;
+            font-size: 1.1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .nav-button:hover {
+            background-color: #800020;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            border-color: #800020;
+        }
+        
+        .nav-button:hover .button-subtitle {
+            opacity: 0.9;
+        }
+        
+        .nav-button:hover .emoji {
+            filter: brightness(1.2);
+        }
+        
+        .button-content {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+        
+        .button-title {
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        
+        .button-subtitle {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            font-weight: 400;
+            transition: opacity 0.3s ease;
+        }
+        
+        .emoji {
+            font-size: 1.5rem;
+            min-width: 30px;
+            text-align: center;
+            display: inline-block;
+        }
+        
+        /* Contact Form */
+        .contact-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 100%;
+        }
+        
+        .contact-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .contact-header h1 {
+            color: #800020;
+            margin-bottom: 10px;
+        }
+        
+        .contact-header p {
+            color: #666;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border 0.3s ease;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #800020;
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        button[type="submit"] {
+            background-color: #800020;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        button[type="submit"]:hover {
+            background-color: #600018;
+            transform: translateY(-2px);
+        }
+        
+        .footer {
+            margin-top: 3rem;
+            color: #999;
+            font-size: 0.8rem;
+            text-align: center;
+            font-weight: 500;
+            width: 100%;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes tilt {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(5deg); }
+            75% { transform: rotate(-5deg); }
+        }
+        
+        @keyframes frameTilt {
+            0%, 100% { transform: perspective(500px) rotateY(0deg); }
+            25% { transform: perspective(500px) rotateY(10deg); }
+            75% { transform: perspective(500px) rotateY(-10deg); }
+        }
+        
+        @keyframes cityLights {
+            0% { text-shadow: 0 0 5px rgba(244, 81, 30, 0.5); }
+            100% { text-shadow: 0 0 15px rgba(244, 81, 30, 0.9); }
+        }
+        
+        @keyframes shimmer {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; text-shadow: 0 0 10px rgba(253, 216, 53, 0.8); }
+            100% { opacity: 0.8; }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-2px); }
+            75% { transform: translateX(2px); }
+        }
+        
+        /* Button-specific animations */
+        .nav-button:nth-child(1) .emoji { animation: pulse 2s infinite; color: #5d4037; }
+        .nav-button:nth-child(2) .emoji { animation: tilt 3s infinite; color: #e53935; }
+        .nav-button:nth-child(3) .emoji { animation: frameTilt 4s ease-in-out infinite; color: #8e24aa; }
+        .nav-button:nth-child(4) .emoji { animation: float 3s ease-in-out infinite; color: #3949ab; }
+        .nav-button:nth-child(5) .emoji { animation: shake 3s infinite; color: #039be5; }
+        .nav-button:nth-child(6) .emoji { animation: cityLights 3s infinite alternate; color: #f4511e; }
+        .nav-button:nth-child(7) .emoji { animation: shimmer 2s infinite; color: #fdd835; }
+        .nav-button:nth-child(8) .emoji { animation: spin 5s linear infinite; color: #43a047; }
+    </style>
+</head>
+<body>
+    <div class="nav-tabs">
+        <button class="tab-button active" onclick="openTab('home')">Home</button>
+        <button class="tab-button" onclick="openTab('contact')">Contact</button>
+    </div>
+    
+    <!-- Home Tab Content -->
+    <div id="home" class="tab-content active">
+        <div class="logo-container">
+            <img src="FIVESPACE-WORLD-LOGO-1-300x300.png" alt="FiveSpace World Logo" class="logo-img">
+            <div class="logo-text">FiveSpace World</div>
+        </div>
+        
+        <div class="button-container">
+            <button class="nav-button">
+                <span class="emoji">🏛️</span>
+                <div class="button-content">
+                    <span class="button-title">FiveSpace Design</span>
+                    <span class="button-subtitle">Architecture, Interior design, landscaping, ArchViz</span>
+                </div>
+            </button>
+            <button class="nav-button">
+                <span class="emoji">📦</span>
+                <div class="button-content">
+                    <span class="button-title">Zahan Store</span>
+                    <span class="button-subtitle">Fashion apparel & lifestyle products</span>
+                </div>
+            </button>
+            <button class="nav-button">
+                <span class="emoji">🖼️</span>
+                <div class="button-content">
+                    <span class="button-title">ArtMansion</span>
+                    <span class="button-subtitle">Paintings, Arts, Vases & More</span>
+                </div>
+            </button>
+            <button class="nav-button">
+                <span class="emoji">📚</span>
+                <div class="button-content">
+                    <span class="button-title">LMS FiveSpace</span>
+                    <span class="button-subtitle">Learning management systems & software</span>
+                </div>
+            </button>
+            <button class="nav-button">
+                <span class="emoji">🌐</span>
+                <div class="button-content">
+                    <span class="button-title">GV FiveSpace</span>
+                    <span class="button-subtitle">Human resources, talent management & consulting</span>
+                </div>
+            </button>
+            <button class="nav-button">
+                <span class="emoji">🌇</span>
+                <div class="button-content">
+                    <span class="button-title">Zahan</span>
+                    <span class="button-subtitle">Personal brand and ventures</span>
+                </div>
+            </button>
+            <button class="nav-button">
+                <span class="emoji">👑</span>
+                <div class="button-content">
+                    <span class="button-title">Zayed</span>
+                    <span class="button-subtitle">Personal site & photography</span>
+                </div>
+            </button>
+            <button class="nav-button">
+                <span class="emoji">🔬</span>
+                <div class="button-content">
+                    <span class="button-title">Zahan Labs</span>
+                    <span class="button-subtitle">Churning out new companies</span>
+                </div>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Contact Tab Content -->
+    <div id="contact" class="tab-content">
+        <div class="contact-container">
+            <div class="contact-header">
+                <h1>Contact FiveSpace World</h1>
+                <p>Have questions or want to collaborate? Send us a message!</p>
+            </div>
+            
+            <!-- Netlify-Compatible Form -->
+            <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="contact">
+                <p class="hidden">
+                    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                </p>
+                
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <select id="subject" name="subject" required>
+                        <option value="" disabled selected>Select a subject</option>
+                        <option value="General Inquiry">General Inquiry</option>
+                        <option value="Business Collaboration">Business Collaboration</option>
+                        <option value="Design Services">Design Services</option>
+                        <option value="Store Inquiry">Store Inquiry</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        © 2025 FiveSpace World. All rights reserved.
+    </footer>
+
+    <script>
+        // Tab functionality
+        function openTab(tabName) {
+            const tabContents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove('active');
+            }
+            
+            const tabButtons = document.getElementsByClassName('tab-button');
+            for (let i = 0; i < tabButtons.length; i++) {
+                tabButtons[i].classList.remove('active');
+            }
+            
+            document.getElementById(tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+        
+        // Button click animations
+        document.querySelectorAll('.nav-button').forEach(button => {
+            button.addEventListener('click', () => {
+                button.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    button.style.transform = '';
+                    alert(`Navigating to ${button.querySelector('.button-title').textContent.trim()}`);
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>
