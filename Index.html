@@ -473,7 +473,7 @@
 
     <script>
         function openTab(tabName) {
-    console.log('Opening tab:', tabName); // Debug log
+    console.log('Opening tab:', tabName);
     
     // Hide all tab contents
     const tabContents = document.getElementsByClassName('tab-content');
@@ -494,12 +494,14 @@
     }
     
     // Activate the clicked button
-    event.currentTarget.classList.add('active');
+    if (event && event.currentTarget) {
+        event.currentTarget.classList.add('active');
+    }
 }
 
 // Set home as default tab when page loads
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Page loaded'); // Debug log
+    console.log('Page loaded');
     
     // Hide all tabs first
     const tabContents = document.getElementsByClassName('tab-content');
@@ -513,13 +515,23 @@ document.addEventListener('DOMContentLoaded', function() {
         tabButtons[i].classList.remove('active');
     }
     
-    // Check if we need to open contact tab (from philosophy page)
-    if (localStorage.getItem('openContactTab') === 'true') {
-        console.log('Opening contact tab from storage');
-        // Manually show contact tab and activate button
+    // Check URL parameters for tab
+    const urlParams = new URLSearchParams(window.location.search);
+    const requestedTab = urlParams.get('tab');
+    
+    if (requestedTab === 'contact') {
+        console.log('Opening contact tab from URL parameter');
         document.getElementById('contact').classList.add('active');
-        document.querySelector('[onclick="openTab(\'contact\')"]').classList.add('active');
-        localStorage.removeItem('openContactTab');
+        // Find and activate the contact button
+        const contactButtons = document.querySelectorAll('.tab-button');
+        contactButtons.forEach(button => {
+            if (button.onclick && button.onclick.toString().includes("'contact'")) {
+                button.classList.add('active');
+            }
+        });
+        
+        // Clean the URL
+        window.history.replaceState({}, document.title, window.location.pathname);
     } else {
         // Activate home tab by default
         console.log('Opening home tab by default');
@@ -567,7 +579,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
-});      
+});
     </script>
 </body>
 </html>
