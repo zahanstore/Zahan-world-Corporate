@@ -268,7 +268,7 @@
     <div class="nav-tabs">
     <a href="index.html" class="tab-button">Home</a>
     <button class="tab-button active">Our Philosophy</button>
-    <a href="index.html" class="tab-button">Contact</a>
+    <a href="index.html" class="tab-button" id="contactLink">Contact</a>
     </div>
 
     <!-- Logo -->
@@ -337,10 +337,15 @@
     </div>
 
     <script>
-function openContactTab() {
+    function openContactTab() {
     // This will be handled by the home page
     localStorage.setItem('openContactTab', 'true');
-}
+    }
+
+    // Set flag to open contact tab when going back to index.html
+    document.getElementById('contactLink').addEventListener('click', function() {
+    localStorage.setItem('openContactTab', 'true');
+    });
     </script>
 </body>
 </html>
