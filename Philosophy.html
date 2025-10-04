@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Philosophy - Zahan World Corporate</title>
+    <!-- Favicon in multiple formats -->
+    <link rel="apple-touch-icon" sizes="180x180" href="FIVESPACE-WORLD-LOGO-1-300x300.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="FIVESPACE-WORLD-LOGO-1-300x300.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="FIVESPACE-WORLD-LOGO-1-300x300.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="FIVESPACE-WORLD-LOGO-1-300x300.png" color="#800020">
+    <meta name="msapplication-TileColor" content="#800020">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif;
+        }
+        
+        body {
+            background-color: #f0e9e0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 800px;
+        }
+        
+        .tab-button {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #800020;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .tab-button.active {
+            border-bottom: 3px solid #800020;
+            color: #800020;
+        }
+        
+        .tab-button:hover:not(.active) {
+            color: #a00028;
+        }
+        
+        /* Main Content */
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+        
+        .logo-img {
+            height: 100px;
+            width: auto;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 4px 8px rgba(128, 0, 32, 0.2));
+        }
+        
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #800020;
+            text-align: center;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .philosophy-container {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .philosophy-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .philosophy-header h1 {
+            color: #800020;
+            margin-bottom: 15px;
+            font-size: 2.5rem;
+        }
+        
+        .philosophy-header .divider {
+            width: 80px;
+            height: 3px;
+            background: #800020;
+            margin: 0 auto 20px;
+            border-radius: 2px;
+        }
+        
+        .philosophy-section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #fafafa;
+            border-radius: 10px;
+            border-left: 4px solid #800020;
+        }
+        
+        .philosophy-section h2 {
+            color: #800020;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .philosophy-section h3 {
+            color: #a00028;
+            margin: 20px 0 10px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .philosophy-section p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .numerology-highlight {
+            background: linear-gradient(135deg, #800020, #a00028);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: none;
+        }
+        
+        .numerology-highlight h3 {
+            color: #f0e9e0 !important;
+            font-size: 1.4rem;
+        }
+        
+        .numerology-highlight p {
+            color: #f0e9e0 !important;
+        }
+        
+        .number-8 {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #f0e9e0;
+            text-align: center;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        .energy-points {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .energy-points li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.5;
+        }
+        
+        .energy-points li:before {
+            content: "▸";
+            color: #f0e9e0;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .energy-points li strong {
+            color: #f0e9e0;
+        }
+        
+        .footer {
+            margin-top: 2rem;
+            color: #999;
+            font-size: 0.8rem;
+            text-align: center;
+            font-weight: 500;
+            width: 100%;
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .philosophy-container {
+                padding: 20px;
+            }
+            
+            .philosophy-header h1 {
+                font-size: 2rem;
+            }
+            
+            .philosophy-section {
+                padding: 20px;
+            }
+            
+            .number-8 {
+                font-size: 3rem;
+            }
+            
+            .nav-tabs {
+                flex-wrap: wrap;
+            }
+            
+            .tab-button {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Tabs -->
+    <div class="nav-tabs">
+        <a href="index.html" class="tab-button">Home</a>
+        <a href="philosophy.html" class="tab-button active">Our Philosophy</a>
+    </div>
+
+    <!-- Logo -->
+    <div class="logo-container">
+        <img src="FIVESPACE-WORLD-LOGO-1-300x300.png" alt="Zahan World Corporate Logo" class="logo-img">
+        <div class="logo-text">Zahan World Corporate</div>
+    </div>
+
+    <!-- Philosophy Content -->
+    <div class="philosophy-container">
+        <div class="philosophy-header">
+            <h1>Our Philosophy</h1>
+            <div class="divider"></div>
+            <p>The foundation upon which Zahan World Corporate is built</p>
+        </div>
+
+        <section class="philosophy-section">
+            <h2>Our Vision</h2>
+            <p>To pioneer the future of global enterprise by creating synergistic ecosystems where innovation, technology, and human potential converge to build lasting value and transformative solutions for generations to come.</p>
+        </section>
+
+        <section class="philosophy-section">
+            <h2>Our Mission</h2>
+            <p>To empower businesses and communities worldwide through strategic innovation, ethical leadership, and cutting-edge solutions that drive sustainable growth, foster meaningful connections, and redefine industry standards.</p>
+        </section>
+
+        <section class="philosophy-section">
+            <h2>Our Name: A Numerical Blueprint</h2>
+            <p>The selection of "Zahan World Corporate" was a deliberate and meaningful choice, rooted in the ancient science of numerology. We believe that a name carries vibrational energy that shapes destiny.</p>
+
+            <div class="philosophy-section numerology-highlight">
+                <div class="number-8">8</div>
+                <h3>The Power of Eight</h3>
+                <p>The name "Zahan" reduces to the powerful vibration of the number <strong>8</strong>—the ultimate number of business mastery, authority, and material achievement.</p>
+                
+                <p>This numerical foundation represents the invisible architecture of our brand, supporting our ambition to not just participate in the market, but to lead and redefine it.</p>
+
+                <h3>What the Number 8 Embodies:</h3>
+                <ul class="energy-points">
+                    <li><strong>Power & Authority:</strong> Establishing a commanding presence and leadership in our industry</li>
+                    <li><strong>Financial Mastery:</strong> Strategic focus on sustainable growth and abundance creation</li>
+                    <li><strong>Executive Excellence:</strong> Commitment to the highest standards of business acumen</li>
+                    <li><strong>Karmic Reward:</strong> Belief that large-scale success comes from ambitious effort and strategic vision</li>
+                    <li><strong>Global Impact:</strong> Capacity for influence and achievement on a worldwide scale</li>
+                </ul>
+            </div>
+
+            <p>This energetic blueprint informs every aspect of our operations—from our strategic decisions to our client relationships. The name Zahan is not just an identity; it is a declaration of our intent to lead, achieve, and create enduring legacy.</p>
+        </section>
+
+        <section class="philosophy-section">
+            <h2>Our Core Values</h2>
+            <h3>Innovation with Purpose</h3>
+            <p>We embrace cutting-edge solutions that serve meaningful human needs and contribute to positive global progress.</p>
+
+            <h3>Integrity as Foundation</h3>
+            <p>Every business relationship is built on transparency, trust, and ethical conduct that stands the test of time.</p>
+
+            <h3>Global Vision, Local Impact</h3>
+            <p>We think and operate globally while understanding that real change happens through local implementation and cultural sensitivity.</p>
+        </section>
+    </div>
+
+    <div class="footer">
+        &copy; 2025 Zahan World Corporate. All rights reserved.
+    </div>
+</body>
+</html>
