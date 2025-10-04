@@ -61,7 +61,20 @@
         .tab-button:hover:not(.active) {
             color: #a00028;
         }
-        
+
+        .tab-button {
+    /* your existing styles */
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+        a.tab-button {
+    /* Ensure link buttons look identical to button elements */
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+}
         /* Tab Content */
         .tab-content {
             display: none;
@@ -310,7 +323,7 @@
 <body>
     <div class="nav-tabs">
         <button class="tab-button active" onclick="openTab('home')">Home</button>
-        <button class="tab-button" onclick="openTab('philosophy')">Our Philosophy</button>
+         <a href="philosophy.html" class="tab-button">Our Philosophy</a>
         <button class="tab-button" onclick="openTab('contact')">Contact</button>
     </div>
     
