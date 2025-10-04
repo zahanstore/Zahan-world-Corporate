@@ -488,6 +488,49 @@
             event.currentTarget.classList.add('active');
             }
 
+        function openTab(tabName) {
+    // Hide all tab contents
+    const tabContents = document.getElementsByClassName('tab-content');
+    for (let i = 0; i < tabContents.length; i++) {
+        tabContents[i].classList.remove('active');
+    }
+    
+    // Remove active class from all tab buttons
+    const tabButtons = document.getElementsByClassName('tab-button');
+    for (let i = 0; i < tabButtons.length; i++) {
+        tabButtons[i].classList.remove('active');
+    }
+    
+    // Show the selected tab content and activate the button
+    document.getElementById(tabName).classList.add('active');
+    event.currentTarget.classList.add('active');
+    }
+
+   // Set home as default tab when page loads
+    document.addEventListener('DOMContentLoaded', function()
+    {
+    // Hide all tabs first
+    const tabContents = document.getElementsByClassName('tab-content');
+    for (let i = 0; i < tabContents.length; i++) {
+        tabContents[i].classList.remove('active');
+    }
+    
+    // Remove active from all buttons
+    const tabButtons = document.getElementsByClassName('tab-button');
+    for (let i = 0; i < tabButtons.length; i++) {
+        tabButtons[i].classList.remove('active');
+    }
+    
+    // Activate home tab
+    document.getElementById('home').classList.add('active');
+    document.querySelector('[onclick="openTab(\'home\')"]').classList.add('active');
+    
+    // Check if we need to open contact tab (from philosophy page)
+       if (localStorage.getItem('openContactTab') === 'true') {
+        openTab('contact');
+        localStorage.removeItem('openContactTab');
+        }
+
         // Handle opening contact tab from philosophy page
            document.addEventListener('DOMContentLoaded', function() {
            if (localStorage.getItem('openContactTab') === 'true') {
