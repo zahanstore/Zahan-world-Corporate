@@ -527,7 +527,21 @@
             
             document.getElementById(tabName).classList.add('active');
             event.currentTarget.classList.add('active');
-        }
+            }
+
+        // Handle opening contact tab from philosophy page
+           document.addEventListener('DOMContentLoaded', function() {
+           if (localStorage.getItem('openContactTab') === 'true') {
+           openTab('contact');
+           localStorage.removeItem('openContactTab');
+        
+        // Update active tab
+           document.querySelectorAll('.tab-button').forEach(btn => {
+           btn.classList.remove('active');
+           });
+           document.querySelector('[onclick="openTab(\'contact\')"]').classList.add('active');
+           }
+           });
     </script>
 </body>
 </html>
