@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Purpose- Zahan World Corporate®</title>
+    <!-- Favicon in multiple formats -->
+    <link rel="apple-touch-icon" sizes="180x180" href="FIVESPACE-WORLD-LOGO-1-300x300.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="FIVESPACE-WORLD-LOGO-1-300x300.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="FIVESPACE-WORLD-LOGO-1-300x300.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="FIVESPACE-WORLD-LOGO-1-300x300.png" color="#800020">
+    <meta name="msapplication-TileColor" content="#800020">
+    <meta name="theme-color" content="#ffffff">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Quicksand', sans-serif;
+        }
+        
+        body {
+            background-color: #f0e9e0;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(128, 0, 32, 0.1);
+            border: 2px solid #800020;
+            color: #800020;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        
+        .theme-toggle:hover {
+            background: #800020;
+            color: white;
+            transform: rotate(30deg);
+        }
+        
+        .dark-mode .theme-toggle {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #e0e0e0;
+            color: #e0e0e0;
+        }
+        
+        .dark-mode .theme-toggle:hover {
+            background: #e0e0e0;
+            color: #121212;
+        }
+        
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 800px;
+        }
+        
+        .tab-button {
+            padding: 12px 24px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #800020;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .tab-button.active {
+            border-bottom: 3px solid #800020;
+            color: #800020;
+        }
+        
+        .tab-button:hover:not(.active) {
+            color: #a00028;
+        }
+        
+        .dark-mode .tab-button {
+            color: #e0e0e0;
+        }
+        
+        .dark-mode .tab-button.active {
+            border-bottom-color: #800020;
+            color: #800020;
+        }
+        
+        .dark-mode .tab-button:hover:not(.active) {
+            color: #a00028;
+        }
+        
+        /* Main Content */
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+        
+        .logo-img {
+            height: 100px;
+            width: auto;
+            margin-bottom: 15px;
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 4px 8px rgba(128, 0, 32, 0.2));
+        }
+        
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #800020;
+            text-align: center;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .dark-mode .logo-text {
+            color: #800020;
+        }
+        
+        .philosophy-container {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .dark-mode .philosophy-container {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+        
+        .philosophy-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .philosophy-header h1 {
+            color: #800020;
+            margin-bottom: 15px;
+            font-size: 2.5rem;
+        }
+        
+        .dark-mode .philosophy-header h1 {
+            color: #800020;
+        }
+        
+        .philosophy-header .divider {
+            width: 80px;
+            height: 3px;
+            background: #800020;
+            margin: 0 auto 20px;
+            border-radius: 2px;
+        }
+        
+        .philosophy-header p {
+            color: #666;
+        }
+        
+        .dark-mode .philosophy-header p {
+            color: #b0b0b0;
+        }
+        
+        .philosophy-section {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: #fafafa;
+            border-radius: 10px;
+            border-left: 4px solid #800020;
+            transition: all 0.3s ease;
+        }
+        
+        .dark-mode .philosophy-section {
+            background-color: #2d2d2d;
+            color: #e0e0e0;
+        }
+        
+        .philosophy-section h2 {
+            color: #800020;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .dark-mode .philosophy-section h2 {
+            color: #800020;
+        }
+        
+        .philosophy-section h3 {
+            color: #a00028;
+            margin: 20px 0 10px;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .dark-mode .philosophy-section h3 {
+            color: #a00028;
+        }
+        
+        .philosophy-section p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .dark-mode .philosophy-section p {
+            color: #b0b0b0;
+        }
+        
+        .philosophy-container {
+            max-height: none;
+            overflow: visible;
+            margin-bottom: 2rem;
+        }
+        
+        .numerology-highlight {
+            background: linear-gradient(135deg, #800020, #a00028);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: none;
+        }
+        
+        .dark-mode .numerology-highlight {
+            background: linear-gradient(135deg, #600018, #800020);
+        }
+        
+        .numerology-highlight h3 {
+            color: #f0e9e0 !important;
+            font-size: 1.4rem;
+        }
+        
+        .numerology-highlight p {
+            color: #f0e9e0 !important;
+        }
+        
+        .number-8 {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #f0e9e0;
+            text-align: center;
+            margin: 20px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: pulse 2s infinite;
+        }
+        
+        .energy-points {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .energy-points li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.5;
+        }
+        
+        .energy-points li:before {
+            content: "▸";
+            color: #f0e9e0;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .energy-points li strong {
+            color: #f0e9e0;
+        }
+        
+        .footer {
+            margin-top: 2rem;
+            color: #999;
+            font-size: 0.8rem;
+            text-align: center;
+            font-weight: 500;
+            width: 100%;
+        }
+        
+        .dark-mode .footer {
+            color: #888;
+        }
+        
+        .copyright a {
+            color: #967BB6;
+            font-weight: 600;
+            font-size: 1.1em;
+            text-decoration: none;
+        }
+        
+        .dark-mode .copyright a {
+            color: #b39ddb;
+        }
+        
+        /* Ensure content fits */
+        @media (max-width: 768px) {
+            .philosophy-container {
+                padding: 15px;
+            }
+            
+            .philosophy-section {
+                padding: 15px;
+            }
+            
+            .theme-toggle {
+                top: 10px;
+                right: 10px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .philosophy-container {
+                padding: 20px;
+            }
+            
+            .philosophy-header h1 {
+                font-size: 2rem;
+            }
+            
+            .philosophy-section {
+                padding: 20px;
+            }
+            
+            .number-8 {
+                font-size: 3rem;
+            }
+            
+            .nav-tabs {
+                flex-wrap: wrap;
+            }
+            
+            .tab-button {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        🌙
+    </button>
+    
+    <!-- Navigation Tabs -->
+    <div class="nav-tabs">
+        <a href="index.html" class="tab-button">Home</a>
+        <button class="tab-button active">Our Purpose</button>
+        <a href="index.html?tab=contact" class="tab-button">Contact</a>
+    </div>
+
+    <!-- Logo -->
+    <div class="logo-container">
+        <img src="FIVESPACE-WORLD-LOGO-1-300x300.png" alt="Zahan World Corporate Logo" class="logo-img">
+        <div class="logo-text">Zahan World Corporate®</div>
+    </div>
+
+    <!-- Philosophy Content -->
+    <div class="philosophy-container">
+        <div class="philosophy-header">
+            <h1>Our Purpose</h1>
+            <div class="divider"></div>
+            <p>The foundation upon which Zahan World Corporate® is built</p>
+        </div>
+
+        <section class="philosophy-section">
+            <h2>Our Vision</h2>
+            <p>To pioneer the future of global enterprise by creating synergistic ecosystems where innovation, technology, and human potential converge to build lasting value and transformative solutions for generations to come.</p>
+        </section>
+
+        <section class="philosophy-section">
+            <h2>Our Mission</h2>
+            <p>To empower businesses and communities worldwide through strategic innovation, ethical leadership, and cutting-edge solutions that drive sustainable growth, foster meaningful connections, and redefine industry standards.</p>
+        </section>
+
+        <section class="philosophy-section">
+            <h2>Our Promise</h2>
+            <p>"We believe in sustainable and ethical manufacturing. It's is our commitment and the foundation of everything we do."</p>
+        </section>
+
+        <section class="philosophy-section">
+            <h2>Our Brand Name Thought-Process: A Numerical Blueprint</h2>
+            <p>The selection of "Zahan World Corporate®" was a deliberate and meaningful choice, rooted in the ancient science of numerology. We believe that a name carries vibrational energy that shapes destiny.</p>
+
+            <div class="philosophy-section numerology-highlight">
+                <div class="number-8">8</div>
+                <h3>The Power of Eight</h3>
+                <p>The name "Zahan" reduces to the powerful vibration of the number <strong>8</strong>—the ultimate number of business mastery, authority, and material achievement.</p>
+                
+                <p>This numerical foundation represents the invisible architecture of our brand, supporting our ambition to not just participate in the market, but to lead and redefine it.</p>
+
+                <h3>What the Number 8 Embodies:</h3>
+                <ul class="energy-points">
+                    <li><strong>Power & Authority:</strong> Establishing a commanding presence and leadership in our industry</li>
+                    <li><strong>Financial Mastery:</strong> Strategic focus on sustainable growth and abundance creation</li>
+                    <li><strong>Executive Excellence:</strong> Commitment to the highest standards of business acumen</li>
+                    <li><strong>Karmic Reward:</strong> Belief that large-scale success comes from ambitious effort and strategic vision</li>
+                    <li><strong>Global Impact:</strong> Capacity for influence and achievement on a worldwide scale</li>
+                </ul>
+            </div>
+
+            <p>This energetic blueprint informs every aspect of our operations—from our strategic decisions to our client relationships. The name Zahan is not just an identity; it is a declaration of our intent to lead, achieve, and create enduring legacy.</p>
+        </section>
+
+        <section class="philosophy-section">
+            <h2>Our Core Values</h2>
+            <h3>Innovation with Purpose</h3>
+            <p>We embrace cutting-edge solutions that serve meaningful human needs and contribute to positive global progress.</p>
+
+            <h3>Integrity as Foundation</h3>
+            <p>Every business relationship is built on transparency, trust, and ethical conduct that stands the test of time.</p>
+
+            <h3>Global Vision, Local Impact</h3>
+            <p>We think and operate globally while understanding that real change happens through local implementation and cultural sensitivity.</p>
+        </section>
+    </div>
+
+    <footer class="footer">
+        © 2025 Zahan World Corporate® Private Limited. All rights reserved.  
+        <p class="copyright">Crafted with ♥️ by <a href="https://labsz.netlify.app">Zahan Labs®</a></p>
+    </footer>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('themeToggle');
+        
+        // Check for saved theme preference or prefer-color-scheme
+        function getPreferredTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                return savedTheme;
+            }
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        
+        // Apply theme
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                document.body.classList.add('dark-mode');
+                themeToggle.textContent = '☀️';
+                themeToggle.setAttribute('aria-label', 'Switch to light mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+                themeToggle.textContent = '🌙';
+                themeToggle.setAttribute('aria-label', 'Switch to dark mode');
+            }
+            localStorage.setItem('theme', theme);
+        }
+        
+        // Initialize theme
+        applyTheme(getPreferredTheme());
+        
+        // Toggle theme on button click
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+        });
+        
+        // Listen for system theme changes
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                applyTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+
+        function openContactTab() {
+            // This will be handled by the home page
+            localStorage.setItem('openContactTab', 'true');
+        }
+
+        // Set flag to open contact tab when going back to index.html
+        document.getElementById('contactLink').addEventListener('click', function() {
+            localStorage.setItem('openContactTab', 'true');
+        });
+    </script>
+</body>
+</html>
