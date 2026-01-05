@@ -479,6 +479,95 @@
         .nav-button:nth-child(7) .emoji { animation: shimmer 2s infinite; color: #fdd835; }
         .nav-button:nth-child(8) .emoji { animation: pulse 2s infinite; color: #5d4037; }
         .nav-button:nth-child(9) .emoji { animation: spin 5s linear infinite; color: #43a047; }
+        
+        /* Responsive Styles - Mobile Menu */
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-wrap: wrap;
+                gap: 5px;
+                margin-bottom: 20px;
+            }
+            
+            .tab-button {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+                flex: 1 0 calc(33.333% - 10px); /* 3 items per row */
+                text-align: center;
+                min-width: 100px;
+                margin: 2px;
+            }
+            
+            .logo-img {
+                height: 80px;
+            }
+            
+            .logo-text {
+                font-size: 1.7rem;
+            }
+            
+            .company-tagline {
+                font-size: 1rem;
+                padding: 0 15px;
+            }
+            
+            .holding-highlight {
+                padding: 20px 15px;
+                margin: 20px 0;
+            }
+            
+            .holding-highlight h3 {
+                font-size: 1.2rem;
+            }
+            
+            .button-container {
+                max-width: 100%;
+                padding: 0 10px;
+            }
+            
+            .nav-button {
+                padding: 14px 16px;
+                font-size: 1rem;
+            }
+            
+            .theme-toggle {
+                top: 10px;
+                right: 10px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.3rem;
+            }
+            
+            .contact-container {
+                padding: 20px;
+            }
+        }
+        
+        /* For very small screens */
+        @media (max-width: 480px) {
+            .tab-button {
+                flex: 1 0 calc(50% - 10px); /* 2 items per row on very small screens */
+                font-size: 0.85rem;
+                padding: 8px 12px;
+            }
+            
+            .logo-img {
+                height: 70px;
+            }
+            
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .nav-button {
+                padding: 12px 14px;
+                font-size: 0.95rem;
+            }
+            
+            .emoji {
+                font-size: 1.3rem;
+                min-width: 25px;
+            }
+        }
     </style>
 </head>
 <body>
