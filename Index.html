@@ -484,17 +484,12 @@
         @media (max-width: 768px) {
             .nav-tabs {
                 flex-wrap: wrap;
-                gap: 5px;
                 margin-bottom: 20px;
             }
             
             .tab-button {
                 padding: 10px 15px;
                 font-size: 0.9rem;
-                flex: 1 0 calc(33.333% - 10px); /* 3 items per row */
-                text-align: center;
-                min-width: 100px;
-                margin: 2px;
             }
             
             .logo-img {
@@ -543,30 +538,7 @@
         }
         
         /* For very small screens */
-        @media (max-width: 480px) {
-            .tab-button {
-                flex: 1 0 calc(50% - 10px); /* 2 items per row on very small screens */
-                font-size: 0.85rem;
-                padding: 8px 12px;
-            }
-            
-            .logo-img {
-                height: 70px;
-            }
-            
-            .logo-text {
-                font-size: 1.5rem;
-            }
-            
-            .nav-button {
-                padding: 12px 14px;
-                font-size: 0.95rem;
-            }
-            
-            .emoji {
-                font-size: 1.3rem;
-                min-width: 25px;
-            }
+      
         }
     </style>
 </head>
